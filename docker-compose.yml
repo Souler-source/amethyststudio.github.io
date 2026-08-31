@@ -1,0 +1,27 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: amethyst
+      POSTGRES_USER: amethyst
+      POSTGRES_PASSWORD: change-this-password
+    volumes:
+      - amethyst_db:/var/lib/postgresql/data
+  api:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      APP_SECRET: change-this-long-random-secret
+      GOOGLE_CLIENT_ID: your-client-id.apps.googleusercontent.com
+      ADMIN_EMAIL: khangyukimaru@gmail.com
+      DATABASE_URL: postgresql+psycopg://amethyst:change-this-password@db:5432/amethyst
+      CORS_ORIGINS: http://localhost:5173
+      JOB_DIR: /app/data/jobs
+    volumes:
+      - amethyst_jobs:/app/data/jobs
+    depends_on:
+      - db
+volumes:
+  amethyst_db:
+  amethyst_jobs:
