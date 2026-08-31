@@ -1,0 +1,15 @@
+fastapi==0.116.1
+uvicorn[standard]==0.35.0
+python-multipart==0.0.20
+sqlalchemy==2.0.43
+psycopg[binary]==3.2.9
+PyJWT==2.10.1
+google-auth==2.40.3
+requests==2.32.5
+pydantic==2.11.7
+pydantic-settings==2.10.1
+yt-dlp==2026.8.26
+Pillow==11.3.0
+rembg==2.0.67
+onnxruntime==1.22.1
+python-dotenv==1.1.1
